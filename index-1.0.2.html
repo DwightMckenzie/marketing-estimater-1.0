@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Marketing Estimater 1.0.2</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content=""/>
+		<!-- fontawesome 6 -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+			integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+			crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link href="style-1.0.2.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div class="container">
+			<!-- calculator your price  -->
+			<div class="row hdr">
+				<div class="col-12">
+					<h2>Calculate your package</h2>
+				</div>
+			</div>
+			<div class="row estimate-wrppr">
+				<!-- plan adjustments ------------------------------->
+				<div class="col-8 plan-wrppr" id="plan-wrppr">
+					<div class="inner-row rw-1">
+						<div class="col-12">
+							<h3>Select a Marketing Central plan:</h3>
+						</div>
+					</div>
+					<div class="inner-row rw-2 plan-select" id="plan-select">
+						<div class="col-4 opt-bdy active" id="strt" value="69">
+							<div class="opt-cntnt">
+								<div>Starter</div>
+								<div>$69/month</div>
+							</div>
+						</div>
+						<div class="col-4 opt-bdy" id="prof" value="169">
+							<div class="opt-cntnt">
+								<div>Professional</div>
+								<div>$169/month</div>
+							</div>
+						</div>
+						<div class="col-4 opt-bdy" id="busi" value="249">
+							<div class="opt-cntnt">
+								<div>Business</div>
+								<div>$249/month</div>
+							</div>
+						</div>
+					</div>
+					<div class="inner-row rw-3 cntct-select" id="cntct-select">
+						<div class="col-12">
+							<h3>Marketing Contacts</h3>
+						</div>
+						<div class="col-12">
+							<p>Includes <span class="cntct-cnt">500</span> marketing contacts.<br>
+								Additional marketing contacts are sold in increments of <span>1,000</span> from <span>$45.00</span>
+								<span>/month</span>
+							</p>
+						</div>
+						<div class="col-12 slide-wrppr">
+							<input type="range" class="cntct-slide" min="10000" max="1000000" value="10000" step="1000" id="cntct-slide">
+							<div class="min-max">
+								<div class="min">10,000</div>
+								<div class="max">1,000,000</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="cntct-lmt-msg off" id="cntct-lmt-msg"></div>
+						</div>
+						<div class="col-12">
+							<p><strong>All non-marketing contacts are free, up to a limit of 1 million overall contacts.</strong><br>Only pay for
+								the contacts you want to market to.
+							</p>
+						</div>
+					</div>
+					<div class="inner-row rw-4 addons-wrppr" id="addons-wrppr">
+						<div class="col-12 addon-hdr" id="addon-hdr">
+							<div class="col-12">
+								<h3>Add-Ons:</h3>
+							</div>
+							<div class="col-12 bttn">
+								<p>Customize and enhance your plan with additional features.<span id="addon-lst-bttn"><i class="fa-solid fa-plus"></i></span></p>
+							</div>
+						</div>
+						<div class="col-12 addon-lst off" id="addon-lst">
+							<div>
+								<div class="inner-row">
+									<div class="addon-bx">
+										<div class="input">
+											<div>
+												<input type="checkbox" name="addon-itm" value="100" />
+												<label>Ads limit increase</label>
+												<label><span>$100.00/mo</span></label>
+											</div>
+											<div>
+												<label>Qty</label>
+												<input type="number" min="1" max="25" value="0" />
+												<i class="fa-solid fa-circle-info"></i>
+											</div>
+										</div>
+										<div class="desc">
+											<p>Create 50 additional ad optimization events and 50 additional audiences that sync hourly between your HubSpot account and HubSpot-supported advertising accounts. Purchase multiple limit increase packs for more volume.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="inner-row">
+									<div class="addon-bx">
+										<div class="input">
+											<div>
+												<input type="checkbox" name="addon-itm" value="500" />
+												<label>API limit increase</label>
+												<label><span>$500.00/mo</span></label>
+											</div>
+											<div>
+												<label>Qty</label>
+												<input type="number" min="1" max="25" value="0" />
+												<i class="fa-solid fa-circle-info"></i>
+											</div>
+										</div>
+										<div class="desc">
+											<p>Increase your included API call volume for your integrations between you HubSpot account and other services to up to
+											1,000,000 calls per day.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="inner-row">
+									<div class="addon-bx">
+										<div class="input">
+											<div>
+												<input type="checkbox" name="addon-itm" value="100" />
+												<label>Custom SSL Add-ons</label>
+												<label><span>$100.00/mo</span></label>
+											</div>
+											<div>
+												<label>Qty</label>
+												<input type="number" min="1" max="25" value="0" />
+												<i class="fa-solid fa-circle-info"></i>
+											</div>
+										</div>
+										<div class="desc">
+											<p>Your Marketing, Service, or CMS Hub Professional or Enterprise plan comes with a standard SSL certificate to encrypt and
+											secure your website content. This premium SSL service offers additional customization.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="inner-row">
+									<div class="addon-bx">
+										<div class="input">
+											<div>
+												<input type="checkbox" name="addon-itm" value="200" />
+												<label>Reporting Limit Increase</label>
+												<label><span>$200.00/mo</span></label>
+											</div>
+											<div>
+												<label>Qty</label>
+												<input type="number" min="1" max="25" value="0" />
+												<i class="fa-solid fa-circle-info"></i>
+											</div>
+										</div>
+										<div class="desc">
+											<p>Increase your dashboards limit by 300, and create 3,000 additional custom reports for your team based on any metric in Marketing Hub, Sales Hub, Service Hub, or CMS Hub. Purchase multiple limit increase packs for additional dashboard and custom report volume.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="inner-row">
+									<div class="addon-bx">
+										<div class="input">
+											<div>
+												<input type="checkbox" name="addon-itm" value="100" />
+												<label>Business Unit Add-ons</label>
+												<label><span>$100.00/mo</span></label>
+											</div>
+											<div>
+												<label>Qty</label>
+												<input type="number" min="1" max="25" value="0" />
+												<i class="fa-solid fa-circle-info"></i>
+											</div>
+										</div>
+										<div class="desc">
+											<p>Manage multiple brands in a single HubSpot account. Delineate different brand settings, contacts, reports, pages, emails, and forms for each of your business units. Includes one additional root domain, 100 additional active lists, 100 additional static lists, and 100 additional workflows.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="inner-row">
+									<div class="addon-bx">
+										<div class="input">
+											<div>
+												<input type="checkbox" name="addon-itm" value="100" />
+												<label>Domain Limit Increase</label>
+												<label><span>$100.00/mo</span></label>
+											</div>
+											<div>
+												<label>Qty</label>
+												<input type="number" min="1" max="25" value="0" />
+												<i class="fa-solid fa-circle-info"></i>
+											</div>
+										</div>
+										<div class="desc">
+											<p>Host content and create traffic analytics reports on one additional root domain.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="inner-row">
+									<div class="addon-bx">
+										<div class="input">
+											<div>
+												<input type="checkbox" name="addon-itm" value="300" />
+												<label>Dedicated IP Add-on</label>
+												<label><span>$300.00/mo</span></label>
+											</div>
+											<div>
+												<i class="fa-solid fa-circle-info"></i>
+											</div>
+										</div>
+										<div class="desc">
+											<p>For more control over your individual sender reputation, purchase your own dedicated IP address that will be monitored 24/7. This is a good fit for senders who consistently send a high volume of email each month.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="inner-row">
+									<div class="addon-bx">
+										<div class="input">
+											<div>
+												<input type="checkbox" name="addon-itm" value="600" />
+												<label>Transactional Email Add-on</label>
+												<label><span>$600.00/mo</span></label>
+											</div>
+											<div>
+												<i class="fa-solid fa-circle-info"></i>
+											</div>
+										</div>
+										<div class="desc">
+											<p>Send relationship-based emails like automated commerce receipts, account updates, and system messages, and get full engagement tracking across your emails.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="inner-row">
+									<div class="addon-bx">
+										<div class="input">
+											<div>
+												<input type="checkbox" name="addon-itm" value="750" />
+												<label>Sandbox Limit Increase</label>
+												<label><span>$750.00/mo</span></label>
+											</div>
+											<div>
+												<label>Qty</label>
+												<input type="number" min="1" max="25" value="0" />
+												<i class="fa-solid fa-circle-info"></i>
+											</div>
+										</div>
+										<div class="desc">
+											<p>Expand your testing capabilities in HubSpot with one additional sandbox account. Purchase multiple limit increase packs to add even more sandbox accounts.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="inner-row">
+									<div class="addon-bx">
+										<div class="input">
+											<div>
+												<input type="checkbox" name="addon-itm" value="200" />
+												<label>Lists Limit Increase</label>
+												<label><span>$200.00/mo</span></label>
+											</div>
+											<div>
+												<label>Qty</label>
+												<input type="number" min="1" max="25" value="0" />
+												<i class="fa-solid fa-circle-info"></i>
+											</div>
+										</div>
+										<div class="desc">
+											<p>Increase your included active list volume by 100 lists and your included static list volume by 100 lists. Purchase multiple limit increase packs for more volume.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div><!-- ends col 12 -->
+					</div>
+				</div><!-- ends plan-wrppr -->
+				<!-- side bar ------------------------------->
+				<div class="col-4 plan-calc">
+					<div class="inner-row">
+						<div class="col-12">
+							<h3>Payment Option:</h3>
+						</div>
+					</div>
+
+					<!-- begins the package overview -->
+					<div class="inner-row pkg-info">
+
+						<!-- payment  rate button -->
+						<div class="col-12 pmt-rte" id="pmt-rte">
+							<div class="col-6 opt-bdy active" id="pmt-mnth">
+								<div class="opt-cntnt">
+									<div>Monthly</div>
+									<div>Payment</div>
+								</div>
+							</div>
+							<div class="col-6 opt-bdy" id="pmt-ann">
+								<div class="opt-cntnt">
+									<div>Annual</div>
+									<div>Payment</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- package overview -->
+						<div class="col-12 pkg-ovrvw" id="pkg-ovrvw">
+							<div class="col-12">
+								<h3>Package Overview:</h3>
+							</div>
+							<table>
+								<tbody>
+									<tr>
+										<td><strong>Plan Type:</strong></td>
+										<td><span id="pln-name" value="strt">Starter</span></td>
+									</tr>
+									<tr>
+										<td><strong>Billing Rate:</strong> (Per User)</td>
+										<td><span id="bll-rte" value="">Monthly</span></td>
+									</tr>
+									<tr>
+										<td><strong>Plan Base Cost:</strong></td>
+										<td>$<span id="pln-amnt" value="69">69</span></td>
+									</tr>
+									<tr>
+										<td><strong>Added Contacts:</strong></td>
+										<td><span id="add-cntct" value="10000">10000</span></td>
+									</tr>
+									<tr>
+										<td><strong>Contacts Cost:</strong></td>
+										<td>$<span id="cntct-cost" value="0">0</span></td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="col-12">
+								<h3>Addon Packages:</h3>
+							</div>
+							<table id="addon-tbl">
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div class="inner-row pkg-calc">
+						<div class="col-12 est-notice" id="est-notice">Click Estimate</div>
+						<div class="col-12">
+							<button type="button" id="est-btn">Estimate</button>
+						</div>
+					</div>
+
+					<div class="inner-row">
+						<div class="col-12 pkg-est" id="pkg-est">
+							<table>
+								<tbody>
+									<tr>
+										<td><strong>Estimated cost to get started:</strong></td>
+										<td>$<span id="est-ttl">0</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>			
+					</div>
+
+				</div><!-- ends plan calc -->
+			</div> <!-- ends row estimator -->
+		</div> <!-- ends .container -->
+
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- custom js -->
+		<script src="script-1.0.2.js" type="text/javascript"></script>
+	</body>
+</html>

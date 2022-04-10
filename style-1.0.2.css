@@ -1,0 +1,541 @@
+/* these below for indexing css */
+/*==============================================================================
+css index lvl 1
+==============================================================================*/
+
+/*------------------------------------------------------------------------------
+css index lvl 2
+------------------------------------------------------------------------------*/
+
+/* css index lvl 3
+------------------------------------------------------------------------------*/
+
+/* css index lvl 4 -----------------------------------------------------------*/
+
+:root {
+	--page-bg-color: #fefefe;
+	--font-color: #777777;
+	--font-color-hover: rgba(119, 119, 119, 0.5);
+	--form-bg-color: #efefef;
+	--active-bg-color: #00A4BD;
+}
+
+/*==============================================================================
+HTML elements
+==============================================================================*/
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0px;
+	background-color: var(--page-bg-color);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color: var(--font-color);
+}
+
+p {
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+h1 {
+	font-size: 60px;
+}
+h2 {
+	font-size: 30px;
+}
+h3 {
+	font-size: 20px;
+}
+h4 {
+	font-size: 17px;
+}
+h5 {
+	font-size: 15px;
+}
+h6 {
+	font-size: 13px;
+}
+
+td {
+	padding: 0px 0px 5px 0px;
+} 
+
+/*==============================================================================
+Custom Classes
+==============================================================================*/
+	/*----------------------------------------------------------------------------
+	page elements
+	----------------------------------------------------------------------------*/
+	.container .hdr,
+	.inner-row .hdr {
+		text-align: center;
+	}
+
+	.container .hdr {
+    padding-top: 20px;
+    padding-bottom: 20px;
+	}
+
+	/*----------------------------------------------------------------------------
+	responsive system
+	----------------------------------------------------------------------------*/
+	.container {
+		margin: auto;
+		display: flow-root;
+		/* background-color: gainsboro; */
+		background-color: var(--form-bg-color);
+	}
+
+	.row {
+		width: 100%;
+		float: left;
+		margin-bottom: 20px;
+		/* background-color: black; */
+	}
+
+	.inner-row {
+		width: 100%;
+		float: left;
+		margin-top: 0px;
+		margin-bottom: 15px;
+	}
+	
+	.col-1, .col-2, .col-3,
+	.col-4, .col-5, .col-6,
+	.col-7, .col-8, .col-9,
+	.col-10, .col-11, .col-12 {
+		float: left;
+	}
+
+	.inner-col-1, .inner-col-2, .inner-col-3,
+	.inner-col-4, .inner-col-5, .inner-col-6,
+	.inner-col-7, .inner-col-8, .inner-col-9,
+	.inner-col-10, .inner-col-11, .inner-col-12 {
+		float: left;
+	}
+
+	/* .col-1 {
+		width: 8%;
+	}
+	.col-2 {
+		width: 16%;
+	}
+	.col-3 {
+		width: 25%;
+	}
+	.col-4 {
+		width: 33%;
+	}
+	.col-5 {
+		width: 41%;
+	}
+	.col-6 {
+		width: 50%;
+	}
+	.col-7 {
+		width: 58%;
+	}
+	.col-8 {
+		width: 66%;
+	}
+	.col-9 {
+		width: 75%;
+	}
+	.col-10 {
+		width: 83%;
+	}
+	.col-11 {
+		width: 91%;
+	}
+	.col-12 {
+		width: 100%;
+	} */
+
+	/*----------------------------------------------------------------------------
+	UI Elements
+	----------------------------------------------------------------------------*/
+		/* plan wrppr column
+		--------------------------------------------------------------------------*/
+		.estimate-wrppr .plan-wrppr>:nth-child(1),
+		.estimate-wrppr .plan-calc>:nth-child(1) {
+			margin-bottom: 5px;
+		}
+		/* .estimate-wrppr .cntct-select>:nth-child(3) .cntct-bx {
+			text-align: end;
+			margin-bottom: 20px;
+		} */
+
+		/* Plan Select
+		--------------------------------------------------------------------------*/
+		.plan-select {
+			display: flex;
+		}
+		.plan-select .opt-bdy {
+			cursor: pointer;
+			padding: 15px;
+			background-color: azure;
+		}
+		.plan-select .opt-cntnt {
+			text-align: center;
+		}
+		.plan-select .active {
+			background-color: var(--active-bg-color);
+			box-shadow: inset 0 0 5px #555;
+			color: #fff;
+		}
+
+		/* contact slider
+		--------------------------------------------------------------------------*/
+		.cntct-bx table {
+			width: 100%;
+			text-align: end;
+		}
+		.cntct-bx table tr td {
+			width: 50%;
+		}
+
+		.cntct-select .slide-wrppr {
+			margin-bottom: 20px;
+		}
+		/* .slidecontainer {
+			width: 100%;
+		} */
+		.cntct-select .cntct-slide {
+			width: 100%;
+			height: 7px;
+			background: #d3d3d3;
+			-webkit-appearance: none;
+			appearance: none;
+			outline: none;
+			opacity: 0.7;
+			-webkit-transition: .2s;
+			transition: opacity .2s;
+		}
+		.cntct-select .cntct-slide:hover {
+			opacity: 1;
+		}
+		/* Slider handle
+		(use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+		.cntct-select .cntct-slide::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 25px;
+			height: 25px;
+			background: #00A4BD;
+			cursor: pointer;
+			border-radius: 50%;
+		}
+		.cntct-select .cntct-slide::-moz-range-thumb {
+			width: 10px;
+			height: 10px;
+			background: #00A4BD;
+			cursor: pointer;
+		}
+		.cntct-select .cntct-slide::before {
+			display: none !important;
+		}
+		.cntct-select .min-max {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 15px;
+		}
+		.cntct-lmt-msg {
+			overflow: hidden;
+		}
+		.cntct-lmt-msg p {
+			border-top: 1px solid var(--font-color);
+			padding: 20px;
+			margin-bottom: 0px;
+    /* background-color: beige; */
+			text-align: center;
+		}
+
+		/* addons
+		--------------------------------------------------------------------------*/
+		.estimate-wrppr .addons-wrppr .addon-hdr .bttn span {
+			font-size: 20px;
+			float: right;
+		}
+		
+		.estimate-wrppr .addons-wrppr .addon-lst {
+			height: 0px;
+			overflow: hidden;
+			transition: height 0.7s;
+		}
+		.addons-wrppr .addon-bx {
+			border-radius: 5px;
+			margin-bottom: 15px;
+		}
+		input[type="number"] {
+			width: 50px;
+		}
+		input[type="checkbox"] {
+			transform: scale(1.25);
+		}
+		.addons-wrppr .addon-bx input[type="checkbox"]:after {
+			background-color: red;
+		}
+		.addons-wrppr .addon-bx .input {
+			height: 25px;
+			padding: 10px;
+			/* background: azure; */
+		}
+		.addons-wrppr .addon-bx .input div:first-child {
+			width: 80%;
+			float: left;
+		}
+		.addons-wrppr .addon-bx .input div:first-child label {
+			line-height: 1.5;
+		}
+		.addons-wrppr .addon-bx .input div:first-child span {
+			float: right;
+		}
+		.addons-wrppr .addon-bx .input div:last-child {
+			width: 20%;
+			float: left;
+			text-align: end;
+		}
+		.addons-wrppr .addon-bx .input div:last-child i {
+			margin-left: 10px;
+		}
+		.addons-wrppr .addon-bx .input div:last-child i:hover {
+			color: var(--font-color-hover);
+		}
+		.addons-wrppr .addon-bx .desc {
+			width: 100%;
+			height: 0px;
+			overflow: hidden;
+			transition: height 0.5s;
+		}
+		.addons-wrppr .addon-bx .desc p {
+			border-top: 1px solid var(--font-color);
+			padding: 10px;
+			margin-bottom: 0px;
+			/* background-color: beige; */
+		}
+		
+		/* Plan Calc
+		--------------------------------------------------------------------------*/
+		.plan-calc>div {
+			margin-top: 0px;
+			margin-bottom: 15px;
+		}
+
+		/* Payment rate button
+		--------------------------------------------------------------------------*/
+		.pkg-info .pmt-rte {
+			display: flex;
+			margin-bottom: 10px;
+		}
+		.pkg-info .pmt-rte .opt-bdy {
+			cursor: pointer;
+			padding: 15px;
+			background-color: azure;
+		}
+		.pkg-info .pmt-rte .opt-cntnt {
+			text-align: center;
+		}
+		.pkg-info .pmt-rte .active {
+			background-color: var(--active-bg-color);
+			box-shadow: inset 0 0 5px #555;
+			color: #fff;
+		}
+
+		/* Package overview table
+		--------------------------------------------------------------------------*/
+		.pkg-ovrvw h3 {
+			border-bottom: 1px solid var(--font-color);
+		}
+		.pkg-ovrvw table {
+			width: 100%;
+		}
+		.pkg-ovrvw table tr :last-child {
+			text-align: end;
+		}
+
+		/* Package calculate
+		--------------------------------------------------------------------------*/
+		.pkg-calc {
+			text-align: center;
+		}
+		.pkg-calc .est-notice {
+			margin-bottom: 5px;
+		}
+		.pkg-est table {
+			width: 100%;
+		}
+		.pkg-est table tr :last-child {
+			text-align: end;
+		}
+
+/*==============================================================================
+media queries
+==============================================================================*/
+@media screen and (min-width:200px) {
+	.container {
+		width: auto;
+		padding: 0 15px;
+	}
+	.col-1,
+	.col-2,
+	.col-3,
+	.col-4,
+	.col-5,
+	.col-6,
+	.col-7,
+	.col-8,
+	.col-9,
+	.col-10,
+	.col-11,
+	.col-12 {
+		float:none;
+		text-align: center;
+		width: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	.addon-lst.on {
+		height: 1175px;
+	}
+	.addons-wrppr .addon-bx .input {
+		height: 55px;
+		padding: 10px;
+		/* background: azure; */
+	}
+	.addons-wrppr .addon-bx .input div:first-child {
+		width: 100%;
+		float: left;
+		text-align: initial;
+		margin-bottom: 5px;
+	}
+	.addons-wrppr .addon-bx .input div:last-child {
+		width: auto;
+		float: initial;
+		text-align: end;
+	}
+	.addons-wrppr .addon-bx .desc p {
+		text-align: left;
+	}
+}
+@media screen and (min-width:414px) {
+}
+@media screen and (min-width:736px) {
+	.col-1,
+	.col-2,
+	.col-3,
+	.col-4,
+	.col-5,
+	.col-6,
+	.col-7,
+	.col-8,
+	.col-9,
+	.col-10,
+	.col-11,
+	.col-12 {
+		float: left;
+		text-align: inherit;
+		/* margin-left: 5px; */
+		/* margin-right: 5px; */
+	}
+	.col-1 {
+		width: 8%;
+	}
+
+	.col-2 {
+		width: 16%;
+	}
+
+	.col-3 {
+		width: 25%;
+	}
+
+	.col-4 {
+		width: 34%;
+		/* background-color: darkkhaki; */
+	}
+
+	.col-5 {
+		width: 41%;
+	}
+
+	.col-6 {
+		width: 50%;
+	}
+
+	.col-7 {
+		width: 58%;
+	}
+
+	.col-8 {
+		width: 63%;
+		/* background-color: cornflowerblue; */
+		/* margin-right: 15px; */
+	}
+
+	.col-9 {
+		width: 75%;
+	}
+
+	.col-10 {
+		width: 83%;
+	}
+
+	.col-11 {
+		width: 91%;
+	}
+
+	.col-12 {
+		width: 100%;
+	}
+
+	.plan-wrppr,
+	.plan-calc {
+		width: 100%;
+	}
+
+	
+
+
+}
+@media screen and (min-width:768px) {
+
+	/* .plan-wrppr{
+		width: 70%;
+	}
+	.plan-calc {
+		width: 30%;
+	} */
+}
+@media screen and (min-width:1024px) {
+	.col-4 {
+		width: 30%;
+	}
+	.plan-wrppr {
+		width:69%;
+		margin-right: 1%;
+	}
+	.addons-wrppr .addon-bx .input {
+		height: 25px;
+		padding: 10px;
+		/* background: azure; */
+	}
+	.addons-wrppr .addon-bx .input div:first-child {
+		width: 80%;
+		float: left;
+		text-align: initial;
+		margin-bottom: 5px;
+	}
+}
+@media screen and (min-width:1200px) {
+	.container {
+		width: 1200px;
+	}
+}
