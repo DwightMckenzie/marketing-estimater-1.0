@@ -9,6 +9,7 @@ const mnthCostBusi = 249;
 const annCostStrt = 169;
 const annCostProf = 289;
 const annCostBusi = 349;
+// script version 1.0.2
 
 // convert basic number to account style number
 function c(num) {
@@ -362,7 +363,7 @@ function tggleDesc(e) {
   let addonLstArr = Array.from(addonLst.children[0].children);
 
   // add tggle class on / off
-  // apply height of p tag and open this descriotion box
+  // apply height of p tag and open this description box
   if (rw.classList.contains('on')) {
     desc.style.height = '0px';
     rw.classList.replace('on', 'off');
@@ -460,7 +461,6 @@ function slideChange(e){
 
   // update message and change select plan when in different slider range
   if (sldVal >= 500000) {
-    // console.log('> 500k');
     
     cntctLmtEl.style.height = 'auto';
 
