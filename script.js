@@ -9,7 +9,6 @@ const mnthCostBusi = 249;
 const annCostStrt = 169;
 const annCostProf = 289;
 const annCostBusi = 349;
-// script version 1.0.2
 
 // convert basic number to account style number
 function c(num) {
@@ -363,7 +362,7 @@ function tggleDesc(e) {
   let addonLstArr = Array.from(addonLst.children[0].children);
 
   // add tggle class on / off
-  // apply height of p tag and open this description box
+  // apply height of p tag and open this descriotion box
   if (rw.classList.contains('on')) {
     desc.style.height = '0px';
     rw.classList.replace('on', 'off');
@@ -409,16 +408,30 @@ function tggleDesc(e) {
   });
 })();
 
+// get current viewport width
+function vwPrt() {
+  let scrnWdth = this.screen.width;
+  return scrnWdth;
+};
+
 // open or close addon list
 function tgglList() {
-  console.log('here');
+  let vwPrtN = vwPrt();
+  let vwPrtPxl = `${vwPrtN}px`;
 
   const addonLst = document.getElementById('addon-lst');
 
   if (addonLst.classList.contains('off')) {
-    console.log('opened');
-    addonLst.style.height = '750px';
-    addonLst.classList.replace('off', 'on');
+    if (vwPrtN >= 414) {
+      console.log('opened');
+      addonLst.style.height = '1175px';
+      addonLst.classList.replace('off', 'on');
+    }  
+    if (vwPrtN >= 1024) {
+      console.log('opened');
+      addonLst.style.height = '800px';
+      addonLst.classList.replace('off', 'on');
+    }
   } else {
     console.log('closed');
     addonLst.style.height = '0px';
@@ -441,10 +454,9 @@ function slideChange(e){
   let addedCntcts = document.getElementById('add-cntct');
   addedCntcts.attributes[1].value = sldVal;
   addedCntcts.textContent = sldVal;
-  
+ 
   let cntctCost = document.getElementById('cntct-cost');
   
-
   // take out contact fee incrment when range slide at 10k/1
   if (incrmnt === 1) {
     let a = 0;
@@ -453,26 +465,19 @@ function slideChange(e){
   } else {
     let a = prcPerInc;
     let b = c(a);
-
     cntctCost.setAttribute('value', b.n);
     cntctCost.textContent = b.s;
-
   }
 
   // update message and change select plan when in different slider range
   if (sldVal >= 500000) {
-    
     cntctLmtEl.style.height = 'auto';
-
     cntctLmtEl.innerHTML = '<p><strong>Have more than 500,000 contacts?</strong><br>Please call to discuss your pricing options if your database exceeds 500,000 contacts.</p>';
-    
     plnType = 'busi';
   } else {
     cntctLmtEl.style.height = '0px';
   }
-
   estNotice();
-
 };
 
 // calculate and show package estimation
@@ -487,12 +492,10 @@ function estPkgTotal() {
 
   // checks if addon table is empty or not  
   if (addOnTrCnt === 0) {
-    // console.log('no trs');
     let estTotal = parseInt(plnAmnt) + parseInt(cntctCst);
     let a = c(estTotal);
     finalEst.textContent = a.s;
   } else {
-    // console.log('yes trs');
     for (let i = 0; i < addOnTrCnt; i++) {
       let addOnCst = addOnTr.children[i].children[2].children[0].attributes[1].value;
       addOnTotal += parseInt(addOnCst);
