@@ -429,7 +429,7 @@ function tgglList() {
     }  
     if (vwPrtN >= 1024) {
       console.log('opened');
-      addonLst.style.height = '800px';
+      addonLst.style.height = '1000px';
       addonLst.classList.replace('off', 'on');
     }
   } else {
