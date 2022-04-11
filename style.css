@@ -1,6 +1,6 @@
 /* style 1.0.2 */
 :root {
-	--page-bg-color: #fefefe;
+	--page-bg-color: #efefef;
 	--font-color: #777777;
 	--font-color-hover: rgba(119, 119, 119, 0.5);
 	--form-bg-color: #efefef;
@@ -384,7 +384,6 @@ media queries
 	.col-11,
 	.col-12 {
 		float:none;
-		text-align: center;
 		width: 100%;
 		margin-left: 0px;
 		margin-right: 0px;
