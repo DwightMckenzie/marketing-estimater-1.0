@@ -10,8 +10,25 @@ const annCostStrt = 169;
 const annCostProf = 289;
 const annCostBusi = 349;
 
+// convert basic number to digit style number
+function comaNum(num) {
+  // begins conversion process from value
+  var n = num,
+      s = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  
+  // cnvrtd value options
+  var nmbr = {
+    n: n,
+    s: s
+  }
+  return nmbr;
+}
+
 // convert basic number to account style number
-function c(num) {
+function accNum(num) {
+
+  console.log(num);
+
   // begins conversion process from value
   var n = num,
       d = n.toFixed(2),
@@ -31,8 +48,10 @@ function estNotice(e) {
   const eNotice = document.getElementById('est-notice');
   if (e === 'est') {
     eNotice.style.color = 'var(--font-color)';
+    eNotice.classList.remove('ani-notice');
   } else {
     eNotice.style.color = 'red';
+    eNotice.classList.add('ani-notice');
   }
 }
 
@@ -51,7 +70,7 @@ function rstSldr() {
 }
 
 // payment rate button behavior 
-function pmtBttn(e) {
+function pmtBtn(e) {
   const pmtRte = document.getElementById('pmt-rte');
   const pmtRteLngth = pmtRte.children.length;
   let bdy = e.parentElement;
@@ -59,7 +78,6 @@ function pmtBttn(e) {
   if (bdy.classList.contains('active')) {
     // console.log('yes');
   } else {
-    // console.log('no');
     bdy.classList.remove('active');
     for (let i = 0; i < pmtRteLngth; i++) {
       let bdy = pmtRte.children[i];
@@ -69,15 +87,13 @@ function pmtBttn(e) {
     }
     bdy.classList.add('active');
 
-    // let rteSlctd = bdy.id;
-    // priceAdjstr("",rteSlctd);
     priceAdjstr();
     rstSldr();
     estNotice();
   }
 }
 // set click function for payment rate behavior
-(function pmtBttnAttr() {
+(function pmtBtnAttr() {
   const pmtRte = document.getElementById('pmt-rte');
   const pmtRteArr = Array.from(pmtRte.children);
 
@@ -85,7 +101,7 @@ function pmtBttn(e) {
   pmtRteArr.forEach((e) => {
     i++;
     let optBdy = e.children[0];
-    optBdy.setAttribute('onclick', 'pmtBttn(this)');
+    optBdy.setAttribute('onclick', 'pmtBtn(this)');
   });
 
 })();
@@ -115,8 +131,7 @@ function priceAdjstr() {
   // find selected plan
   for (let i = 0; i < plnCnt; i++) {
     if (plnType[i].classList.contains('active')) {
-      // console.log(plnType[i].id);
-      
+
       pln = plnType[i].id;
     
     }
@@ -125,8 +140,7 @@ function priceAdjstr() {
   // find selected payment rate
   for (let i = 0; i < pmtRteCnt; i++) {
     if (pmtRte[i].classList.contains('active')) {
-      // console.log(pmtRte[i].id);
-      
+
       rte = pmtRte[i].id;
     
     }
@@ -265,7 +279,7 @@ function addToPkg(e) {
   let addOnId = this.parentElement.parentElement.parentElement.attributes[1].value;
 
   if (e.target.checked) {
-    // console.log(addOnQty.value);
+    
     if (addOnQty === undefined) { // if addon does not have a number input
       // writes table row
       addOnTblLst.innerHTML += `<tr id="itm-${addOnId}">
@@ -302,7 +316,7 @@ function addToPkg(e) {
         // adjust quantity number in the overview table row  
         let itmCst = parseInt(addOnVal) * parseInt(addOnQty);
 
-        let a = c(itmCst);
+        let a = accNum(itmCst);
 
         // set new cost into the value and text
         itmId.children[2].children[0].setAttribute('value',`${a.n}`);
@@ -416,24 +430,31 @@ function vwPrt() {
 
 // open or close addon list
 function tgglList() {
-  let vwPrtN = vwPrt();
-  let vwPrtPxl = `${vwPrtN}px`;
-
+  // console.log('here');
+  const lstBtn = document.getElementById('addon-lst-btn');
   const addonLst = document.getElementById('addon-lst');
 
+  let vwPrtN = vwPrt();
+  
   if (addonLst.classList.contains('off')) {
     if (vwPrtN >= 414) {
       console.log('opened');
+      lstBtn.style.transform = 'rotate(45deg)';
+      lstBtn.style.color = 'red';
       addonLst.style.height = '1175px';
       addonLst.classList.replace('off', 'on');
     }  
     if (vwPrtN >= 1024) {
       console.log('opened');
+      lstBtn.style.transform = 'rotate(45deg)';
+      lstBtn.style.color = 'red';
       addonLst.style.height = '1000px';
       addonLst.classList.replace('off', 'on');
     }
   } else {
     console.log('closed');
+    lstBtn.style.transform = 'rotate(0deg)';
+    lstBtn.style.color = '#777777';
     addonLst.style.height = '0px';
     addonLst.classList.replace('on','off');
   }
@@ -441,7 +462,7 @@ function tgglList() {
 }
 // set attr on icon button for addon list
 (function addonLst(){
-  const addonBtn = document.getElementById('addon-lst-bttn');
+  const addonBtn = document.getElementById('addon-lst-btn');
   addonBtn.children[0].setAttribute('onclick', 'tgglList(this)');
 })();
 
@@ -453,8 +474,10 @@ function slideChange(e){
   
   let addedCntcts = document.getElementById('add-cntct');
   addedCntcts.attributes[1].value = sldVal;
-  addedCntcts.textContent = sldVal;
- 
+  let cntctCnt = comaNum(parseInt(sldVal));
+  // console.log(parseInt(sldVal));
+  addedCntcts.textContent = cntctCnt.s;
+
   let cntctCost = document.getElementById('cntct-cost');
   
   // take out contact fee incrment when range slide at 10k/1
@@ -462,22 +485,31 @@ function slideChange(e){
     let a = 0;
     cntctCost.setAttribute('value', a);
     cntctCost.textContent = a;
+
   } else {
     let a = prcPerInc;
-    let b = c(a);
+    let b = accNum(a);
+
     cntctCost.setAttribute('value', b.n);
     cntctCost.textContent = b.s;
+
   }
 
   // update message and change select plan when in different slider range
   if (sldVal >= 500000) {
+    // console.log('> 500k');
+    
     cntctLmtEl.style.height = 'auto';
+
     cntctLmtEl.innerHTML = '<p><strong>Have more than 500,000 contacts?</strong><br>Please call to discuss your pricing options if your database exceeds 500,000 contacts.</p>';
+    
     plnType = 'busi';
   } else {
     cntctLmtEl.style.height = '0px';
   }
+
   estNotice();
+
 };
 
 // calculate and show package estimation
@@ -492,16 +524,18 @@ function estPkgTotal() {
 
   // checks if addon table is empty or not  
   if (addOnTrCnt === 0) {
+    // console.log('no trs');
     let estTotal = parseInt(plnAmnt) + parseInt(cntctCst);
-    let a = c(estTotal);
+    let a = accNum(estTotal);
     finalEst.textContent = a.s;
   } else {
+    // console.log('yes trs');
     for (let i = 0; i < addOnTrCnt; i++) {
       let addOnCst = addOnTr.children[i].children[2].children[0].attributes[1].value;
       addOnTotal += parseInt(addOnCst);
     }
     let estTotal = parseInt(addOnTotal) + parseInt(plnAmnt) + parseInt(cntctCst);
-    let a = c(estTotal);
+    let a = accNum(estTotal);
     finalEst.textContent = a.s;
   }
   estNotice('est');
